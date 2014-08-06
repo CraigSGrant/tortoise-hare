@@ -1,0 +1,36 @@
+<script>
+
+  var rabbit, turtle
+  function Animal (name, speed, focus) {
+    this.name = name;
+    this.speed = speed;
+    this.focus = focus;
+    this.position = 0;
+    this.run = function () {
+      if (Math.random() * 10 < this.focus)  {
+        this.position += this.speed
+      };
+    };
+  }
+
+  rabbit = new Animal("Peter", 6, 4);
+  turtle = new Animal("Bert", 3, 8);
+
+  running = true
+  while (running) {
+    if (turtle.position >= 50 && rabbit.position < 50) {
+        alert("Turtle Wins!")
+        running = false
+      } else if (turtle.position < 50 && rabbit.position >= 50) {
+        alert("Rabbit Wins!")
+        running = false
+      } else if (turtle.position >= 50 && rabbit.position >= 50) {
+        alert ("We have A tie.")
+        running = false
+      } else {
+        turtle.run();
+        rabbit.run();
+      }
+  }
+
+</script>
